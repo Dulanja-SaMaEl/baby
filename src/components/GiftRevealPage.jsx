@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { GiftBox } from './GiftBox';
 import { GiftModal } from './GiftModal';
+import { RosePetalsOverlay } from './RosePetalsOverlay';
+import { LaceCornerAccents } from './LaceCornerAccents';
 import { soundManager } from '../utils/soundEffects';
 
 export const GiftRevealPage = ({ onGoBack, onGoBouquet, onGoScrapbook, onGoLetter, onGoVideoVault }) => {
@@ -12,6 +14,7 @@ export const GiftRevealPage = ({ onGoBack, onGoBouquet, onGoScrapbook, onGoLette
   const giftsData = [
     {
       id: 1,
+      name: "Romantic Bouquet",
       tag: "SURPRISE GIFT 1 OF 4 💐",
       icon: "💐🌹",
       title: "Your Romantic Bouquet Surprise",
@@ -20,14 +23,16 @@ export const GiftRevealPage = ({ onGoBack, onGoBouquet, onGoScrapbook, onGoLette
     },
     {
       id: 2,
-      tag: "SURPRISE GIFT 2 OF 4 💎",
-      icon: "👑💎",
-      title: "Custom Engraved Rose Locket",
-      description: "A delicate rose gold pendant locket carrying our favorite picture together, accompanied by our 30-memory scrapbook timeline!",
-      highlights: ["🌹 Fresh Pink Roses", "💖 Rose Gold Locket", "📖 Scrapbook Memories"]
+      name: "Scrapbook Memories",
+      tag: "SURPRISE GIFT 2 OF 4 📖",
+      icon: "📖💖",
+      title: "Our 30-Memory Scrapbook Timeline",
+      description: "A delicate timeline carrying 30 of our most special photos together, full of romantic quotes, dates, and locations!",
+      highlights: ["🌹 30 Precious Photos", "📍 Dates & Locations", "📖 Interactive Scrapbook"]
     },
     {
       id: 3,
+      name: "Handwritten Love Letter",
       tag: "SURPRISE GIFT 3 OF 4 💌",
       icon: "💌✨",
       title: "A Heartfelt Written Love Letter",
@@ -36,6 +41,7 @@ export const GiftRevealPage = ({ onGoBack, onGoBouquet, onGoScrapbook, onGoLette
     },
     {
       id: 4,
+      name: "Video Memory Vault",
       tag: "SURPRISE GIFT 4 OF 4 🍿",
       icon: "🎬🍿",
       title: "Our Video Memory Vault",
@@ -72,39 +78,48 @@ export const GiftRevealPage = ({ onGoBack, onGoBouquet, onGoScrapbook, onGoLette
 
   return (
     <div className="gift-page-container">
-      {/* Background Overlay */}
+      {/* Soft Floating Rose Petals & Lace Corner Accents */}
+      <RosePetalsOverlay />
+      <LaceCornerAccents />
       <div className="watercolor-cloud-bg" aria-hidden="true" />
 
       {/* Main Centered Column Content */}
       <main className="gift-central-content">
         {/* Top Section Typography */}
         <div className="gift-header-stack">
+          <span className="celebration-badge" style={{ background: 'rgba(255, 230, 0, 0.15)', color: '#FFE600', border: '1px solid rgba(255, 230, 0, 0.4)', padding: '0.4rem 1.2rem', borderRadius: '20px', fontSize: '0.88rem', fontWeight: '700', letterSpacing: '1px' }}>
+            🎉 TEST PASSED WITH 100% LOVE 🎉
+          </span>
           <h1 className="bubbly-main-heading">
-            You passed the love test
+            You Passed The Love Test! 💖
           </h1>
           <p className="gift-subheading">
-            Your 4 surprises are waiting for you
+            Your 4 special surprises are waiting for you ✨
           </p>
         </div>
 
         {/* Core UI: Grid of 4 Gift Boxes */}
         <div className="gifts-row-container gifts-4-grid">
           {giftsData.map((gift) => (
-            <GiftBox
-              key={gift.id}
-              giftNumber={gift.id}
-              isOpen={openedBoxes[gift.id]}
-              isHovered={hoveredBox === gift.id}
-              onMouseEnter={() => setHoveredBox(gift.id)}
-              onMouseLeave={() => setHoveredBox(null)}
-              onClick={() => handleBoxClick(gift.id)}
-            />
+            <div key={gift.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+              <GiftBox
+                giftNumber={gift.id}
+                isOpen={openedBoxes[gift.id]}
+                isHovered={hoveredBox === gift.id}
+                onMouseEnter={() => setHoveredBox(gift.id)}
+                onMouseLeave={() => setHoveredBox(null)}
+                onClick={() => handleBoxClick(gift.id)}
+              />
+              <span style={{ fontSize: '0.85rem', fontWeight: '700', color: '#FFCCD5', letterSpacing: '0.5px' }}>
+                {gift.name}
+              </span>
+            </div>
           ))}
         </div>
 
         {/* Navigation back link */}
         {onGoBack && (
-          <button className="back-link-btn" onClick={onGoBack} style={{ marginTop: '0.8rem' }}>
+          <button className="back-link-btn" onClick={onGoBack} style={{ marginTop: '0.5rem' }}>
             ← Back to Milestone
           </button>
         )}
