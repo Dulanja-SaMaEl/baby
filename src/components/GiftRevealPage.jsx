@@ -101,7 +101,7 @@ export const GiftRevealPage = ({ onGoBack, onGoBouquet, onGoScrapbook, onGoLette
         {/* Core UI: Grid of 4 Gift Boxes */}
         <div className="gifts-row-container gifts-4-grid">
           {giftsData.map((gift) => (
-            <div key={gift.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+            <div key={gift.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.6rem' }}>
               <GiftBox
                 giftNumber={gift.id}
                 isOpen={openedBoxes[gift.id]}
@@ -110,7 +110,7 @@ export const GiftRevealPage = ({ onGoBack, onGoBouquet, onGoScrapbook, onGoLette
                 onMouseLeave={() => setHoveredBox(null)}
                 onClick={() => handleBoxClick(gift.id)}
               />
-              <span style={{ fontSize: '0.85rem', fontWeight: '700', color: '#FFCCD5', letterSpacing: '0.5px' }}>
+              <span className="gift-card-label-badge">
                 {gift.name}
               </span>
             </div>

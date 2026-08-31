@@ -3557,11 +3557,27 @@ html, body {
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
-  padding: 1.5rem;
-  background-color: var(--bg-color);
+/* ==========================================================================
+   Gift Reveal Page - Dark Romantic Night Theme (High Contrast & Sharp FX)
+   ========================================================================== */
+
+.gift-page-container {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background: #030A16 !important;
+  background-image: radial-gradient(circle at 50% 30%, #0F223D 0%, #0A192F 60%, #020710 100%) !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  z-index: 1;
 }
 
+/* Subtle Dark Atmospheric Aura - NO WASHOUT PASTELS */
 .watercolor-cloud-bg {
   position: absolute;
   top: 0;
@@ -3571,146 +3587,11 @@ html, body {
   pointer-events: none;
   z-index: 1;
   background: 
-    radial-gradient(circle at 20% 30%, rgba(253, 226, 234, 0.8) 0%, transparent 50%),
-    radial-gradient(circle at 80% 25%, rgba(227, 242, 253, 0.75) 0%, transparent 45%),
-    radial-gradient(circle at 50% 75%, rgba(255, 240, 243, 0.9) 0%, transparent 60%),
-    radial-gradient(circle at 85% 80%, rgba(252, 228, 236, 0.7) 0%, transparent 40%),
-    radial-gradient(circle at 15% 70%, rgba(225, 245, 254, 0.6) 0%, transparent 45%);
-  filter: blur(20px);
-  opacity: 0.9;
-}
-
-.gift-central-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 720px;
-  z-index: 20;
-  text-align: center;
-  gap: 0.8rem;
-}
-
-.gift-header-stack {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-.bubbly-main-heading {
-  font-family: 'Fredoka', var(--font-main);
-  font-size: clamp(2rem, 5.5vw, 3rem);
-  font-weight: 700;
-  color: #FFE600;
-  margin: 0;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  text-shadow: 
-    0 0 16px rgba(255, 230, 0, 0.6),
-    0 0 6px #23F0FF;
-  transform: rotate(-1deg);
-}
-
-.gift-subheading {
-  font-family: 'Quicksand', var(--font-main);
-  font-size: clamp(1.05rem, 2.8vw, 1.3rem);
-  font-weight: 600;
-  color: #A7FFEE;
-  margin: 0;
-  opacity: 1;
-  letter-spacing: 0.01em;
-  text-shadow: 0 0 10px rgba(167, 255, 238, 0.4);
-}
-
-.gifts-row-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 3.5rem;
-  margin: 1.2rem 0 0.6rem 0;
-  width: 100%;
-}
-
-.gift-box-wrapper {
-  position: relative;
-  width: 140px;
-  height: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  outline: none;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.gift-box-svg {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  filter: drop-shadow(0 12px 25px rgba(0, 0, 0, 0.7));
-}
-
-.gift-box-wrapper.wiggle {
-  animation: giftWiggle 0.4s ease-in-out infinite alternate;
-}
-
-@keyframes giftWiggle {
-  0% { transform: translateY(-4px) rotate(-4deg) scale(1.04); }
-  50% { transform: translateY(-2px) rotate(0deg) scale(1.05); }
-  100% { transform: translateY(-4px) rotate(4deg) scale(1.04); }
-}
-
-.gift-lid {
-  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
-  transform-origin: 80px 60px;
-}
-
-.gift-lid.lid-detached {
-  transform: translateY(-38px) rotate(-14deg);
-}
-
-.gift-emit-glow {
-  animation: glowPulse 1.2s ease-in-out infinite alternate;
-}
-
-@keyframes glowPulse {
-  0% { opacity: 0.6; transform: scale(0.95); }
-  100% { opacity: 1; transform: scale(1.1); }
-}
-
-.gift-click-hint {
-  font-family: var(--font-main);
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #23F0FF;
-  margin-top: 0.5rem;
-  letter-spacing: 0.03em;
-  background: #0A192F;
-  padding: 0.35rem 0.85rem;
-  border-radius: 20px;
-  border: 1.5px solid #23F0FF;
-  box-shadow: 0 0 12px rgba(35, 240, 255, 0.4);
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-/* Gift Reveal Page Premium Aesthetic Overrides */
-.gift-page-container {
-  position: relative;
-  width: 100vw;
-  min-height: 100vh;
-  background: radial-gradient(circle at 50% 30%, #152744 0%, #0A192F 70%, #030A16 100%) !important;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 1.5rem;
-  box-sizing: border-box;
-  overflow-x: hidden;
-  z-index: 1;
+    radial-gradient(circle at 20% 30%, rgba(216, 27, 96, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 80% 25%, rgba(35, 240, 255, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 50% 75%, rgba(255, 133, 161, 0.12) 0%, transparent 55%);
+  filter: blur(30px);
+  opacity: 0.8;
 }
 
 .gift-central-content {
@@ -3733,65 +3614,85 @@ html, body {
   gap: 0.8rem;
 }
 
+/* Top Celebration Pill Badge */
+.celebration-badge {
+  background: rgba(10, 25, 47, 0.9) !important;
+  color: #FFE600 !important;
+  border: 1.5px solid rgba(255, 230, 0, 0.6) !important;
+  padding: 0.4rem 1.4rem !important;
+  border-radius: 30px !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), 0 0 12px rgba(255, 230, 0, 0.3) !important;
+}
+
+/* Crisp Sharp Golden Title (NO BLUR OVERLAY) */
 .bubbly-main-heading {
-  font-family: var(--font-accent, 'Gemunu Libre', sans-serif);
-  font-size: clamp(2.2rem, 4vw, 3.2rem) !important;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  background: linear-gradient(135deg, #FFE600 0%, #FFCCD5 50%, #FF85A1 100%) !important;
+  font-family: var(--font-main, 'Fredoka', sans-serif) !important;
+  font-size: clamp(2.4rem, 4.5vw, 3.4rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.02em !important;
+  color: #FFE600 !important;
+  background: linear-gradient(135deg, #FFF099 0%, #FFCCD5 50%, #FF85A1 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
-  filter: drop-shadow(0 4px 14px rgba(255, 230, 0, 0.5)) !important;
-  margin: 0;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.9)) !important;
+  margin: 0 !important;
+  line-height: 1.2 !important;
+  transform: none !important;
 }
 
+/* Subtitle Pill */
 .gift-subheading {
-  font-family: var(--font-main, 'Noto Serif Sinhala', serif);
+  font-family: var(--font-main, 'Quicksand', sans-serif) !important;
   font-size: 1.15rem !important;
-  font-weight: 600;
-  color: #FFE3E9 !important;
-  background: rgba(10, 25, 47, 0.7) !important;
-  border: 1px solid rgba(255, 184, 209, 0.4) !important;
+  font-weight: 600 !important;
+  color: #A7FFEE !important;
+  background: rgba(10, 25, 47, 0.85) !important;
+  border: 1.5px solid rgba(35, 240, 255, 0.4) !important;
   padding: 0.5rem 1.8rem !important;
   border-radius: 30px !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(35, 240, 255, 0.2) !important;
-  margin: 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7), 0 0 15px rgba(35, 240, 255, 0.2) !important;
+  margin: 0 !important;
 }
 
+/* 4 Gift Cards Container */
 .gifts-row-container {
   display: flex !important;
   flex-direction: row !important;
   justify-content: center !important;
   align-items: center !important;
-  gap: 1.8rem !important;
+  gap: 2rem !important;
   flex-wrap: wrap !important;
   width: 100% !important;
-  margin: 1.5rem 0 2.5rem 0 !important;
+  margin: 1.5rem 0 2.2rem 0 !important;
 }
 
+/* Gift Box 3D Frosted Dark Card */
 .gift-box-wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(15, 30, 55, 0.75) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border: 2px solid rgba(255, 184, 209, 0.3) !important;
-  border-radius: 22px !important;
+  background: rgba(10, 25, 47, 0.85) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1.5px solid rgba(35, 240, 255, 0.35) !important;
+  border-radius: 24px !important;
   padding: 1.4rem 1.2rem 1.2rem !important;
   cursor: pointer;
-  width: 190px !important;
+  width: 195px !important;
   height: 220px !important;
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.35s ease !important;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 133, 161, 0.15) !important;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.8), 0 0 15px rgba(35, 240, 255, 0.15) !important;
 }
 
 .gift-box-wrapper:hover {
   transform: translateY(-12px) scale(1.05) !important;
-  border-color: rgba(35, 240, 255, 0.9) !important;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(35, 240, 255, 0.5), 0 0 15px rgba(255, 133, 161, 0.3) !important;
+  border-color: #23F0FF !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9), 0 0 30px rgba(35, 240, 255, 0.5), 0 0 15px rgba(255, 133, 161, 0.3) !important;
 }
 
 .gift-box-wrapper.wiggle {
@@ -3806,7 +3707,7 @@ html, body {
 .gift-box-svg {
   width: 130px !important;
   height: 140px !important;
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4)) !important;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.6)) !important;
 }
 
 .gift-click-hint {
@@ -3832,8 +3733,29 @@ html, body {
   color: #D81B60 !important;
 }
 
+/* Card Name Badge Below Box */
+.gift-card-label-badge {
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  color: #A7FFEE !important;
+  background: rgba(10, 25, 47, 0.9) !important;
+  border: 1.5px solid rgba(35, 240, 255, 0.4) !important;
+  padding: 0.35rem 1rem !important;
+  border-radius: 20px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7), 0 0 10px rgba(35, 240, 255, 0.2) !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.25s ease !important;
+}
+
+.gift-box-wrapper:hover + .gift-card-label-badge,
+.gift-card-label-badge:hover {
+  color: #FFE600 !important;
+  border-color: #23F0FF !important;
+  box-shadow: 0 6px 18px rgba(35, 240, 255, 0.4) !important;
+}
+
 .frosted-backdrop {
-  background: rgba(3, 10, 22, 0.85) !important;
+  background: rgba(3, 10, 22, 0.88) !important;
   backdrop-filter: blur(14px) !important;
   -webkit-backdrop-filter: blur(14px) !important;
 }
