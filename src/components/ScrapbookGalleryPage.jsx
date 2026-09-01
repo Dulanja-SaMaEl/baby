@@ -34,7 +34,7 @@ const MEMORIES_COLLECTION = [
   { id: 27, date: "August 16, 2026", title: "Flowers for the flower of my heart 💐", location: "Kandy", color: "#FEC89A", image: "https://res.cloudinary.com/keklxcys/image/upload/v1788216620/img27.jpg" },
   { id: 28, date: "August 25, 2026", title: "Looking deep into your beautiful eyes 🕯️", location: "Kurunegala", color: "#FFD6E3", image: "https://res.cloudinary.com/keklxcys/image/upload/v1788216620/img28.jpg" },
   { id: 29, date: "August 16, 2026", title: "Your smile is my favorite view in the world 😊", location: "Kandy", color: "#FFE5EC", image: "https://res.cloudinary.com/keklxcys/image/upload/v1788216621/img29.jpg" },
-  { id: 30, date: "June 28, 2026", title: "Happy Birthday my princess! Our forever starts now 🎂✨", location: "Pangala", color: "#FFF0F3", image: "https://res.cloudinary.com/keklxcys/image/upload/v1788216621/img30.jpg" }
+  { id: 30, date: "June 28, 2026", title: "Happy Birthday my princess! Our forever starts now 🎂✨", location: "Pangala", color: "#FFF0F3", image: "https://res.cloudinary.com/keklxcys/image/upload/v1788221979/img30.jpg" }
 ];
 
 export const ScrapbookGalleryPage = ({ onGoBack, onGoNext }) => {
