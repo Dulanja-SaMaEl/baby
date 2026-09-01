@@ -3989,4 +3989,123 @@ html, body {
   box-shadow: 0 10px 30px rgba(255, 133, 161, 0.7) !important;
 }
 
+/* ==========================================================================
+   High-Contrast Karaoke Lyrics Modal
+   ========================================================================== */
+
+.lyrics-modal-card {
+  max-width: 580px !important;
+  width: 92vw !important;
+  background: #0A192F !important;
+  background-image: radial-gradient(circle at 50% 20%, #0F223D 0%, #0A192F 70%, #020710 100%) !important;
+  border: 1.5px solid rgba(35, 240, 255, 0.5) !important;
+  border-radius: 26px !important;
+  padding: 1.6rem 1.4rem !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 30px rgba(35, 240, 255, 0.3) !important;
+  color: #FFFFFF !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+}
+
+.lyrics-modal-title {
+  font-family: var(--font-serif, serif) !important;
+  font-size: 1.65rem !important;
+  font-weight: 700 !important;
+  color: #FFE600 !important;
+  text-shadow: 0 0 14px rgba(255, 230, 0, 0.5) !important;
+  margin: 0.2rem 0 0.1rem 0 !important;
+}
+
+.lyrics-modal-subtitle {
+  font-family: var(--font-main, sans-serif) !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  color: #A7FFEE !important;
+  opacity: 0.9 !important;
+  margin: 0 0 1rem 0 !important;
+}
+
+.full-lyrics-scroll-box {
+  width: 100% !important;
+  max-height: 380px !important;
+  overflow-y: auto !important;
+  background: rgba(3, 10, 22, 0.85) !important;
+  border: 1.5px solid rgba(35, 240, 255, 0.3) !important;
+  border-radius: 16px !important;
+  padding: 0.8rem 1rem !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.55rem !important;
+}
+
+/* Custom Scrollbar for Lyrics Box */
+.full-lyrics-scroll-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.full-lyrics-scroll-box::-webkit-scrollbar-track {
+  background: rgba(10, 25, 47, 0.6);
+  border-radius: 4px;
+}
+
+.full-lyrics-scroll-box::-webkit-scrollbar-thumb {
+  background: #23F0FF;
+  border-radius: 4px;
+  box-shadow: 0 0 10px #23F0FF;
+}
+
+.lyrics-line-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.8rem !important;
+  padding: 0.55rem 0.85rem !important;
+  border-radius: 10px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  transition: all 0.25s ease !important;
+}
+
+.lyrics-timestamp {
+  font-family: monospace !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  color: #23F0FF !important;
+  background: rgba(35, 240, 255, 0.12) !important;
+  border: 1px solid rgba(35, 240, 255, 0.3) !important;
+  padding: 0.15rem 0.5rem !important;
+  border-radius: 6px !important;
+  flex-shrink: 0 !important;
+}
+
+.lyrics-text-content {
+  font-family: 'Great Vibes', 'Dancing Script', var(--font-serif, serif) !important;
+  font-size: 1.15rem !important;
+  font-weight: 500 !important;
+  color: #F0F6FF !important;
+  line-height: 1.4 !important;
+}
+
+/* Active Highlighted Lyric Row */
+.active-karaoke-row {
+  background: linear-gradient(135deg, rgba(255, 72, 120, 0.25) 0%, rgba(35, 240, 255, 0.25) 100%) !important;
+  border: 1.5px solid #23F0FF !important;
+  box-shadow: 0 0 15px rgba(35, 240, 255, 0.4) !important;
+}
+
+.active-karaoke-row .lyrics-timestamp {
+  background: #23F0FF !important;
+  color: #030A16 !important;
+  box-shadow: 0 0 8px #23F0FF !important;
+}
+
+.active-karaoke-row .lyrics-text-content {
+  color: #FFE600 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 10px rgba(255, 230, 0, 0.6) !important;
+}
+
+
 

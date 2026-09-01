@@ -32,16 +32,16 @@ export const KaraokeLyricsBanner = ({ currentTime = 0, isPlaying = false, showFu
 
       {/* Full Lyrics Modal Overlay */}
       {showFullModal && (
-        <div className="modal-backdrop" onClick={onCloseModal}>
+        <div className="modal-backdrop frosted-backdrop" onClick={onCloseModal}>
           <div className="modal-card lyrics-modal-card" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close-btn" onClick={onCloseModal} aria-label="Close lyrics">
               ✕
             </button>
             <span className="celebration-emoji">🎶</span>
-            <h3 className="modal-title" style={{ fontSize: '1.4rem', color: '#D81B60' }}>
+            <h3 className="lyrics-modal-title">
               Young and Beautiful
             </h3>
-            <p className="special-subheading" style={{ fontSize: '0.85rem', margin: '0 0 1rem 0' }}>
+            <p className="lyrics-modal-subtitle">
               Lana Del Rey • Song Transcript
             </p>
 
