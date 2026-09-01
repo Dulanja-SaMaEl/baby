@@ -24,120 +24,132 @@ export const DrawingHeartOverlay = ({ onClose, onReplayJourney }) => {
     };
     window.addEventListener('resize', handleResize);
 
-    // Words to draw
-    const wordList = ['love you', 'LOVE YOU', 'Love You', 'i love you', 'I LOVE YOU', 'forever', 'baby', 'my princess', '💖'];
-    const colors = [
-      '#23F0FF', // Neon Cyan
-      '#FF85A1', // Soft Pink
-      '#A7FFEE', // Aqua Glow
-      '#FFE600', // Bright Yellow
-      '#FF4878', // Rose Pink
-      '#79E2FF'  // Sky Blue
-    ];
+    // Cyan, Sky Blue, Aqua, Soft Pink theme matching the site
+    const words = ['LOVE YOU', 'love you', 'Love You', 'I LOVE YOU'];
+    const colors = ['#23F0FF', '#79E2FF', '#A7FFEE', '#5CE1E6', '#FF85A1'];
 
-    // Generate heart outline points using Parametric Heart Equation
-    // x = 16 * sin^3(t)
-    // y = -(13 * cos(t) - 5 * cos(2t) - 2 * cos(3t) - cos(4t))
-    const totalPoints = Math.min(220, Math.floor(width / 3.2));
-    const heartScale = Math.min(width, height) / 38;
-
+    // 1. Outer Heart Line Points (evenly spaced along parametric curve)
+    const outerCount = Math.min(85, Math.floor(width / 7.5));
+    const heartScale = Math.min(width, height) / 36;
     const points = [];
-    for (let i = 0; i < totalPoints; i++) {
-      const t = (i / totalPoints) * Math.PI * 2;
+
+    for (let i = 0; i < outerCount; i++) {
+      const t = (i / outerCount) * Math.PI * 2;
       const x = 16 * Math.pow(Math.sin(t), 3);
       const y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
-      
+
       points.push({
         x: x * heartScale,
         y: y * heartScale,
-        word: wordList[i % wordList.length],
+        word: words[i % words.length],
         color: colors[i % colors.length],
-        fontSize: Math.floor(Math.random() * 5 + 11),
-        rotation: (Math.random() - 0.5) * 0.4,
-        glow: Math.random() * 15 + 8,
-        delay: (i / totalPoints) * 2.5 // progressive drawing delay in seconds
+        fontSize: Math.floor(width < 480 ? 11 : 13),
+        delay: (i / outerCount) * 2.2 // Smooth drawing animation around perimeter
       });
     }
 
-    // Add extra inner heart particles to match the reference image density
+    // 2. Middle Ring Heart Points (scaled slightly inside)
+    const midCount = Math.min(45, Math.floor(width / 14));
+    const midPoints = [];
+    for (let i = 0; i < midCount; i++) {
+      const t = (i / midCount) * Math.PI * 2;
+      const r = 0.78;
+      const x = 16 * Math.pow(Math.sin(t), 3) * r;
+      const y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t)) * r;
+
+      midPoints.push({
+        x: x * heartScale,
+        y: y * heartScale,
+        word: words[(i + 1) % words.length],
+        color: colors[(i + 2) % colors.length],
+        fontSize: Math.floor(width < 480 ? 10 : 12),
+        delay: 0.6 + (i / midCount) * 1.8
+      });
+    }
+
+    // 3. Inner Soft Ambient Floating Text (leaving center 40% empty for title)
+    const innerCount = Math.min(25, Math.floor(width / 24));
     const innerPoints = [];
-    const innerDensity = Math.min(180, Math.floor(width / 4));
-    for (let i = 0; i < innerDensity; i++) {
-      const t = Math.random() * Math.PI * 2;
-      const r = Math.pow(Math.random(), 0.6) * 0.85; // inner fill distribution
+    for (let i = 0; i < innerCount; i++) {
+      const t = (i / innerCount) * Math.PI * 2;
+      const r = 0.52;
       const x = 16 * Math.pow(Math.sin(t), 3) * r;
       const y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t)) * r;
 
       innerPoints.push({
         x: x * heartScale,
         y: y * heartScale,
-        word: wordList[Math.floor(Math.random() * wordList.length)],
-        color: colors[Math.floor(Math.random() * colors.length)],
-        fontSize: Math.floor(Math.random() * 6 + 10),
-        opacity: Math.random() * 0.7 + 0.3,
-        pulseSpeed: Math.random() * 0.03 + 0.01,
-        phase: Math.random() * Math.PI * 2,
-        delay: 0.8 + Math.random() * 2.0
+        word: words[(i + 2) % words.length],
+        color: colors[(i + 3) % colors.length],
+        fontSize: Math.floor(width < 480 ? 9 : 11),
+        delay: 1.2 + (i / innerCount) * 1.2
       });
     }
 
     let startTime = performance.now();
 
-    // Timer to trigger center text and buttons
-    const centerTimer = setTimeout(() => setShowCenterText(true), 1800);
-    const buttonTimer = setTimeout(() => setShowButtons(true), 2800);
+    const centerTimer = setTimeout(() => setShowCenterText(true), 1500);
+    const buttonTimer = setTimeout(() => setShowButtons(true), 2400);
 
+    // 60 FPS Silky Smooth Render Loop (Zero Canvas Lag)
     const render = (now) => {
-      const elapsed = (now - startTime) / 1000; // in seconds
+      const elapsed = (now - startTime) / 1000;
 
       ctx.clearRect(0, 0, width, height);
 
-      // Deep Romantic Radial Background
-      const bgGrad = ctx.createRadialGradient(width / 2, height / 2, 50, width / 2, height / 2, Math.max(width, height) / 1.2);
+      // Radial Glowing Theme Background
+      const bgGrad = ctx.createRadialGradient(width / 2, height / 2, 40, width / 2, height / 2, Math.max(width, height) / 1.1);
       bgGrad.addColorStop(0, '#0F2A4A');
-      bgGrad.addColorStop(0.6, '#0A192F');
+      bgGrad.addColorStop(0.55, '#0A192F');
       bgGrad.addColorStop(1, '#020710');
       ctx.fillStyle = bgGrad;
       ctx.fillRect(0, 0, width, height);
 
       const centerX = width / 2;
-      const centerY = height / 2 - 10;
+      const centerY = height / 2 - 15;
 
-      // Draw Inner Density Words
+      // Draw Inner Ring Points
       for (let pt of innerPoints) {
         if (elapsed < pt.delay) continue;
-        const progress = Math.min(1, (elapsed - pt.delay) / 0.8);
-        const alpha = Math.sin(now * pt.pulseSpeed + pt.phase) * 0.25 + 0.75;
+        const alpha = Math.min(0.7, (elapsed - pt.delay) / 0.6);
 
         ctx.save();
         ctx.translate(centerX + pt.x, centerY + pt.y);
         ctx.fillStyle = pt.color;
-        ctx.globalAlpha = progress * alpha * 0.85;
-        ctx.font = `600 ${pt.fontSize}px 'Fredoka', 'Quicksand', sans-serif`;
-        ctx.shadowColor = pt.color;
-        ctx.shadowBlur = 10;
+        ctx.globalAlpha = alpha;
+        ctx.font = `600 ${pt.fontSize}px 'Fredoka', sans-serif`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(pt.word, 0, 0);
         ctx.restore();
       }
 
-      // Draw Outer Heart Contour Words (Animative Progressive Drawing)
-      for (let pt of points) {
+      // Draw Middle Ring Points
+      for (let pt of midPoints) {
         if (elapsed < pt.delay) continue;
-
-        const progress = Math.min(1, (elapsed - pt.delay) / 0.6);
-        const scale = 0.5 + progress * 0.5;
+        const alpha = Math.min(0.85, (elapsed - pt.delay) / 0.5);
 
         ctx.save();
         ctx.translate(centerX + pt.x, centerY + pt.y);
-        ctx.rotate(pt.rotation);
-        ctx.scale(scale, scale);
         ctx.fillStyle = pt.color;
-        ctx.globalAlpha = progress;
-        ctx.font = `700 ${pt.fontSize}px 'Fredoka', 'Outfit', sans-serif`;
-        ctx.shadowColor = pt.color;
-        ctx.shadowBlur = pt.glow;
+        ctx.globalAlpha = alpha;
+        ctx.font = `700 ${pt.fontSize}px 'Fredoka', sans-serif`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(pt.word, 0, 0);
+        ctx.restore();
+      }
+
+      // Draw Main Heart Perimeter Points (Drawing Heart Line)
+      for (let pt of points) {
+        if (elapsed < pt.delay) continue;
+        const alpha = Math.min(1, (elapsed - pt.delay) / 0.4);
+
+        ctx.save();
+        ctx.translate(centerX + pt.x, centerY + pt.y);
+        ctx.fillStyle = pt.color;
+        ctx.globalAlpha = alpha;
+        ctx.font = `700 ${pt.fontSize}px 'Fredoka', sans-serif`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(pt.word, 0, 0);
@@ -161,7 +173,7 @@ export const DrawingHeartOverlay = ({ onClose, onReplayJourney }) => {
     <div className="drawing-heart-overlay">
       <canvas ref={canvasRef} className="drawing-heart-canvas" />
 
-      {/* Center "I Love You" Glowing Title */}
+      {/* Clean High-Contrast Center "I Love You" Title */}
       {showCenterText && (
         <div className="drawing-heart-center-text">
           <h1 className="heart-title-text">I Love You</h1>
