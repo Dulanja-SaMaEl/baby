@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import confetti from 'canvas-confetti';
 import { UltimateAnimativeCat } from './UltimateAnimativeCat';
+import { DrawingHeartOverlay } from './DrawingHeartOverlay';
 import { soundManager } from '../utils/soundEffects';
 
 // 16 Curated Video Moments
@@ -28,6 +29,7 @@ export const VideoVaultPage = ({ onGoBack, onFinishJourney }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [showFinalVideoModal, setShowFinalVideoModal] = useState(false);
   const [showFinaleModal, setShowFinaleModal] = useState(false);
+  const [showDrawingHeartOverlay, setShowDrawingHeartOverlay] = useState(false);
   const videoRef = useRef(null);
   const finalVideoRef = useRef(null);
 
@@ -216,7 +218,7 @@ export const VideoVaultPage = ({ onGoBack, onFinishJourney }) => {
                 className="modal-action-btn"
                 onClick={() => {
                   setShowFinaleModal(false);
-                  if (onFinishJourney) onFinishJourney();
+                  setShowDrawingHeartOverlay(true);
                 }}
               >
                 Replay Journey 🔄✨
@@ -224,6 +226,17 @@ export const VideoVaultPage = ({ onGoBack, onFinishJourney }) => {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Step 3: Drawing Text Heart Experience Overlay */}
+      {showDrawingHeartOverlay && (
+        <DrawingHeartOverlay
+          onClose={() => setShowDrawingHeartOverlay(false)}
+          onReplayJourney={() => {
+            setShowDrawingHeartOverlay(false);
+            if (onFinishJourney) onFinishJourney();
+          }}
+        />
       )}
     </div>
   );
