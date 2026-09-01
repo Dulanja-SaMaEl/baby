@@ -4502,7 +4502,93 @@ html, body, #root {
     max-width: 90vw !important;
     font-size: 0.82rem !important;
   }
+
+  /* ==========================================================================
+     Bouquet Page 100% Mobile Responsiveness Overrides
+     ========================================================================== */
+
+  .bouquet-page-container {
+    height: auto !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 0.6rem 0.6rem 5.5rem 0.6rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .bouquet-header-nav {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    padding: 2.8rem 0 0.4rem 0 !important;
+    width: 100% !important;
+  }
+
+  .night-title, .gradient-flow-title {
+    font-size: 1.45rem !important;
+    text-align: center !important;
+  }
+
+  .glowing-next-btn {
+    position: absolute !important;
+    top: 0.6rem !important;
+    right: 0.6rem !important;
+    font-size: 0.75rem !important;
+    padding: 0.35rem 0.8rem !important;
+    z-index: 45 !important;
+  }
+
+  .bouquet-central-stage {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-top: 0.2rem !important;
+    padding: 0 !important;
+  }
+
+  .ribbons-column {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.45rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .silk-ribbon-tag {
+    padding: 0.4rem 0.5rem !important;
+    border-radius: 12px !important;
+    text-align: center !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .ribbon-text {
+    font-size: 0.75rem !important;
+    line-height: 1.2 !important;
+    text-shadow: none !important;
+  }
+
+  .css-blossoming-garden-wrapper {
+    height: 310px !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .blossoming-garden-centerpiece {
+    transform: scale(0.56) !important;
+    margin: -4.5rem 0 -4rem 0 !important;
+    width: 100% !important;
+  }
+
+  .night-back {
+    bottom: 0.6rem !important;
+    left: 0.6rem !important;
+    z-index: 50 !important;
+  }
 }
+
 
 
 
