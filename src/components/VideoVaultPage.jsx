@@ -26,8 +26,10 @@ const VIDEO_COLLECTION = [
 export const VideoVaultPage = ({ onGoBack, onFinishJourney }) => {
   const [activeVideoIndex, setActiveVideoIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [showFinalVideoModal, setShowFinalVideoModal] = useState(false);
   const [showFinaleModal, setShowFinaleModal] = useState(false);
   const videoRef = useRef(null);
+  const finalVideoRef = useRef(null);
 
   const activeVideo = VIDEO_COLLECTION[activeVideoIndex];
 
@@ -59,7 +61,22 @@ export const VideoVaultPage = ({ onGoBack, onFinishJourney }) => {
       origin: { y: 0.5 },
       colors: ['#FF4878', '#FF85A1', '#FFD700', '#5A162E', '#FFFFFF']
     });
+    setShowFinalVideoModal(true);
+  };
+
+  const handleVideoEndedOrContinued = () => {
+    if (finalVideoRef.current) {
+      finalVideoRef.current.pause();
+    }
+    setShowFinalVideoModal(false);
     setShowFinaleModal(true);
+    soundManager.playLoveChime();
+    confetti({
+      particleCount: 150,
+      spread: 110,
+      origin: { y: 0.5 },
+      colors: ['#FF4878', '#23F0FF', '#FFD700', '#A7FFEE', '#FFFFFF']
+    });
   };
 
   return (
@@ -154,7 +171,36 @@ export const VideoVaultPage = ({ onGoBack, onFinishJourney }) => {
         </button>
       )}
 
-      {/* Celebration Grand Finale Modal */}
+      {/* Step 1: Special Final Personal Video Message Modal */}
+      {showFinalVideoModal && (
+        <div className="modal-backdrop frosted-backdrop" onClick={handleVideoEndedOrContinued}>
+          <div className="modal-card final-video-card" onClick={(e) => e.stopPropagation()}>
+            <span className="final-video-badge">🎥 A PERSONAL MESSAGE FROM DULANJA</span>
+            <h2 className="modal-title" style={{ fontSize: '1.6rem', color: '#FFE600', textShadow: '0 0 14px rgba(255, 230, 0, 0.5)', margin: '0.2rem 0' }}>
+              How I Truly Feel About You ❤️
+            </h2>
+            <p style={{ fontSize: '0.92rem', color: '#A7FFEE', opacity: 0.9, margin: '0 0 0.6rem 0' }}>
+              Listen to my heart before we take our next step together ✨
+            </p>
+
+            <video
+              ref={finalVideoRef}
+              className="final-message-video-player"
+              controls
+              autoPlay
+              playsInline
+              src="https://res.cloudinary.com/keklxcys/video/upload/v1788286837/HBD_Baby.mp4"
+              onEnded={handleVideoEndedOrContinued}
+            />
+
+            <button className="continue-to-finale-btn" onClick={handleVideoEndedOrContinued}>
+              Continue to Final Note ✨
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Step 2: Celebration Grand Finale Message Modal */}
       {showFinaleModal && (
         <div className="modal-backdrop" onClick={() => setShowFinaleModal(false)}>
           <div className="modal-card celebration-finale-card" onClick={(e) => e.stopPropagation()}>

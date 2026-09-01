@@ -3926,3 +3926,67 @@ html, body {
   }
 }
 
+/* ==========================================================================
+   Final Personal Video Message Modal
+   ========================================================================== */
+
+.final-video-card {
+  max-width: 680px !important;
+  width: 92vw !important;
+  background: rgba(10, 25, 47, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 2px solid rgba(35, 240, 255, 0.5) !important;
+  border-radius: 28px !important;
+  padding: 1.5rem !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 35px rgba(35, 240, 255, 0.35) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 0.8rem !important;
+  box-sizing: border-box !important;
+}
+
+.final-video-badge {
+  background: rgba(255, 230, 0, 0.15) !important;
+  border: 1px solid rgba(255, 230, 0, 0.6) !important;
+  color: #FFE600 !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  padding: 0.35rem 1rem !important;
+  border-radius: 20px !important;
+  letter-spacing: 0.5px !important;
+}
+
+.final-message-video-player {
+  width: 100% !important;
+  max-height: 52vh !important;
+  border-radius: 16px !important;
+  border: 1.5px solid rgba(35, 240, 255, 0.4) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(35, 240, 255, 0.2) !important;
+  background: #000 !important;
+  outline: none !important;
+}
+
+.continue-to-finale-btn {
+  background: linear-gradient(135deg, #FF85A1 0%, #23F0FF 100%) !important;
+  color: #030A16 !important;
+  font-family: var(--font-main, sans-serif) !important;
+  font-size: 1.05rem !important;
+  font-weight: 800 !important;
+  border: none !important;
+  padding: 0.75rem 2rem !important;
+  border-radius: 30px !important;
+  cursor: pointer !important;
+  box-shadow: 0 6px 20px rgba(35, 240, 255, 0.5) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+  margin-top: 0.4rem !important;
+}
+
+.continue-to-finale-btn:hover {
+  transform: scale(1.06) !important;
+  box-shadow: 0 10px 30px rgba(255, 133, 161, 0.7) !important;
+}
+
+
