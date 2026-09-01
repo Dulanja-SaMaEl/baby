@@ -4219,6 +4219,215 @@ html, body {
   }
 }
 
+/* ==========================================================================
+   Ultra-Mobile & Small Screen 100% Responsiveness Rules (320px - 480px)
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  /* Page Containers */
+  .love-gauge-container, 
+  .welcome-container, 
+  .surprise-page-container, 
+  .milestone-page-container, 
+  .gift-page-container, 
+  .scrapbook-page-container, 
+  .typewriter-page-container, 
+  .video-vault-container {
+    padding: 0.6rem 0.6rem 4.5rem 0.6rem !important;
+    overflow-x: hidden !important;
+    width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Main Headings Fluid Clamping */
+  .bubbly-main-heading, 
+  .page-title, 
+  .scrapbook-title, 
+  .typewriter-title, 
+  .video-vault-title {
+    font-size: clamp(1.4rem, 5vw, 1.8rem) !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .subtitle, 
+  .scrapbook-subtitle, 
+  .typewriter-subtitle, 
+  .video-vault-subtitle {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Scrapbook Polaroid Image Scale */
+  .polaroid-photo-canvas {
+    max-height: 38vh !important;
+    width: auto !important;
+    max-width: 88vw !important;
+    object-fit: contain !important;
+  }
+
+  .polaroid-card-wrapper {
+    padding: 0.6rem !important;
+    max-width: 92vw !important;
+  }
+
+  .polaroid-caption-title {
+    font-size: 0.98rem !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Typewriter Letter Page */
+  .typewriter-notepad-container {
+    max-height: 56vh !important;
+    padding: 0.9rem 0.8rem !important;
+    border-radius: 16px !important;
+  }
+
+  .parchment-text-body {
+    font-size: 0.96rem !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Video Vault Mobile Layout */
+  .video-frame-wrapper {
+    max-height: 38vh !important;
+    border-radius: 16px !important;
+  }
+
+  .main-html5-video {
+    max-height: 38vh !important;
+    width: 100% !important;
+    object-fit: contain !important;
+  }
+
+  /* Gifts Grid 2x2 */
+  .gifts-row-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.6rem !important;
+    width: 100% !important;
+  }
+
+  .gift-box-wrapper {
+    width: 100% !important;
+    height: 165px !important;
+    padding: 0.7rem 0.5rem !important;
+  }
+
+  .gift-box-svg {
+    width: 85px !important;
+    height: 95px !important;
+  }
+
+  .gift-card-label-badge {
+    font-size: 0.72rem !important;
+    padding: 0.2rem 0.5rem !important;
+  }
+
+  /* Milestone Counter Cards Grid */
+  .milestones-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.7rem !important;
+  }
+
+  .milestone-card {
+    padding: 0.8rem 1rem !important;
+  }
+
+  .milestone-number {
+    font-size: 1.8rem !important;
+  }
+
+  /* Modals Fit */
+  .modal-card, 
+  .final-video-card, 
+  .lyrics-modal-card {
+    width: 94vw !important;
+    max-height: 88vh !important;
+    overflow-y: auto !important;
+    padding: 1.1rem 0.85rem !important;
+    border-radius: 20px !important;
+  }
+
+  .final-message-video-player {
+    max-height: 42vh !important;
+  }
+
+  /* Music Entrance Prompt Floating Placement */
+  .music-entrance-prompt-banner {
+    bottom: 3.8rem !important;
+    left: 0.5rem !important;
+    right: 0.5rem !important;
+    max-width: none !important;
+    padding: 0.5rem 0.75rem !important;
+    border-radius: 16px !important;
+  }
+
+  .prompt-heading {
+    font-size: 0.8rem !important;
+  }
+
+  .prompt-play-action-btn {
+    font-size: 0.72rem !important;
+    padding: 0.35rem 0.75rem !important;
+  }
+
+  /* Bottom Controls Fixed Positions */
+  .mini-mp3-player-widget {
+    bottom: 0.5rem !important;
+    right: 0.5rem !important;
+    max-width: 165px !important;
+    padding: 0.3rem 0.55rem !important;
+  }
+
+  .back-link-btn {
+    bottom: 0.5rem !important;
+    left: 0.5rem !important;
+    font-size: 0.72rem !important;
+    padding: 0.35rem 0.65rem !important;
+    max-width: 135px !important;
+  }
+
+  .finish-journey-wrapper {
+    bottom: 0.5rem !important;
+    right: 0.5rem !important;
+  }
+
+  .finish-journey-btn {
+    font-size: 0.82rem !important;
+    padding: 0.5rem 1.1rem !important;
+  }
+}
+
+/* Extra Small Devices (320px - 360px) */
+@media (max-width: 360px) {
+  .bubbly-main-heading {
+    font-size: 1.3rem !important;
+  }
+
+  .polaroid-photo-canvas {
+    max-height: 32vh !important;
+  }
+
+  .typewriter-notepad-container {
+    max-height: 52vh !important;
+  }
+
+  .gift-box-wrapper {
+    height: 150px !important;
+  }
+
+  .gift-box-svg {
+    width: 75px !important;
+    height: 85px !important;
+  }
+
+  .mp3-track-name {
+    max-width: 65px !important;
+  }
+}
+
+
 
 
 
