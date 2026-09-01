@@ -4107,5 +4107,118 @@ html, body {
   text-shadow: 0 0 10px rgba(255, 230, 0, 0.6) !important;
 }
 
+/* ==========================================================================
+   Animative Page Entrance Music Prompt Banner
+   ========================================================================== */
+
+.music-entrance-prompt-banner {
+  position: absolute;
+  bottom: 4.8rem;
+  right: 1.8rem;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: rgba(10, 25, 47, 0.95);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1.8px solid #23F0FF;
+  border-radius: 20px;
+  padding: 0.65rem 1.1rem;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.85), 0 0 20px rgba(35, 240, 255, 0.4);
+  cursor: pointer;
+  animation: promptEntrance 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), promptPulse 2.2s infinite ease-in-out;
+  max-width: 380px;
+}
+
+@keyframes promptEntrance {
+  0% { opacity: 0; transform: translateY(20px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes promptPulse {
+  0%, 100% { box-shadow: 0 12px 35px rgba(0, 0, 0, 0.85), 0 0 18px rgba(35, 240, 255, 0.35); }
+  50% { box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 133, 161, 0.6); }
+}
+
+.prompt-notes-animation {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 1.3rem;
+}
+
+.bouncing-note {
+  display: inline-block;
+  animation: bounceNote 1.4s infinite ease-in-out;
+}
+
+.bouncing-note.n1 { animation-delay: 0s; }
+.bouncing-note.n2 { animation-delay: 0.25s; }
+.bouncing-note.n3 { animation-delay: 0.5s; }
+
+@keyframes bounceNote {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(12deg) scale(1.15); }
+}
+
+.prompt-text-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  text-align: left;
+}
+
+.prompt-badge {
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #FFE600;
+  letter-spacing: 0.8px;
+}
+
+.prompt-heading {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #A7FFEE;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.prompt-subtext {
+  font-size: 0.72rem;
+  color: #FFE3E9;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.prompt-play-action-btn {
+  background: linear-gradient(135deg, #23F0FF 0%, #FF85A1 100%);
+  color: #030A16;
+  font-size: 0.78rem;
+  font-weight: 800;
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(35, 240, 255, 0.5);
+  transition: transform 0.2s ease;
+}
+
+.music-entrance-prompt-banner:hover .prompt-play-action-btn {
+  transform: scale(1.08);
+}
+
+@media (max-width: 640px) {
+  .music-entrance-prompt-banner {
+    bottom: 4rem !important;
+    right: 0.6rem !important;
+    left: 0.6rem !important;
+    max-width: none !important;
+    padding: 0.5rem 0.8rem !important;
+  }
+}
+
+
 
 

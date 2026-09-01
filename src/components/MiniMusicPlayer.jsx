@@ -13,6 +13,8 @@ export const MiniMusicPlayer = ({
   const audioRef = useRef(null);
   const timerRef = useRef(null);
 
+  const [showEntrancePrompt, setShowEntrancePrompt] = useState(true);
+
   const isYoungAndBeautifulTrack = audioSrc.includes('Theme_song.mp3') || 
                                    audioSrc.includes('Theme song.mp3') || 
                                    audioSrc.toLowerCase().includes('young');
@@ -33,6 +35,16 @@ export const MiniMusicPlayer = ({
     };
 
     audio.addEventListener('timeupdate', updateTime);
+
+    // Attempt autoplay on mount
+    audio.play().then(() => {
+      setIsPlaying(true);
+      setShowEntrancePrompt(false);
+    }).catch(() => {
+      // Browser autoplay policy blocked audio -> keep banner open for 1-tap play
+      setIsPlaying(false);
+      setShowEntrancePrompt(true);
+    });
 
     return () => {
       audio.pause();
@@ -62,13 +74,15 @@ export const MiniMusicPlayer = ({
       if (audioRef.current) {
         audioRef.current.play().then(() => {
           setIsPlaying(true);
+          setShowEntrancePrompt(false);
         }).catch(() => {
-          // Play synth chime as backup if media file isn't present
           soundManager.playLoveChime();
           setIsPlaying(true);
+          setShowEntrancePrompt(false);
         });
       } else {
         setIsPlaying(true);
+        setShowEntrancePrompt(false);
       }
     } else {
       if (audioRef.current) {
@@ -82,6 +96,25 @@ export const MiniMusicPlayer = ({
 
   return (
     <>
+      {/* Animative Page Entrance Music Invitation Banner */}
+      {showEntrancePrompt && !isPlaying && (
+        <div className="music-entrance-prompt-banner" onClick={togglePlay}>
+          <div className="prompt-notes-animation">
+            <span className="bouncing-note n1">🎵</span>
+            <span className="bouncing-note n2">🎶</span>
+            <span className="bouncing-note n3">✨</span>
+          </div>
+          <div className="prompt-text-stack">
+            <span className="prompt-badge">🎧 ROMANTIC AUDIO EXPERIENCE</span>
+            <h4 className="prompt-heading">Play background song for this page 💖</h4>
+            <p className="prompt-subtext">Theme Song: <strong>{trackTitle}</strong></p>
+          </div>
+          <button className="prompt-play-action-btn">
+            ▶ Play Song Now ✨
+          </button>
+        </div>
+      )}
+
       {/* Synchronized Floating Karaoke Banner (Only for track Young and Beautiful) */}
       {isYoungAndBeautifulTrack && (
         <KaraokeLyricsBanner
