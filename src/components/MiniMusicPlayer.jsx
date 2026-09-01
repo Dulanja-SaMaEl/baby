@@ -2,13 +2,20 @@ import React, { useState, useEffect, useRef } from 'react';
 import { KaraokeLyricsBanner } from './KaraokeLyricsBanner';
 import { soundManager } from '../utils/soundEffects';
 
-export const MiniMusicPlayer = ({ audioSrc = '/Theme song.mp3', trackTitle = 'Young and Beautiful' }) => {
+export const MiniMusicPlayer = ({ 
+  audioSrc = 'https://res.cloudinary.com/keklxcys/video/upload/v1788220551/Theme_song.mp3', 
+  trackTitle = 'Young and Beautiful' 
+}) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(225); // ~3:45 default duration
   const [showLyricsModal, setShowLyricsModal] = useState(false);
   const audioRef = useRef(null);
   const timerRef = useRef(null);
+
+  const isYoungAndBeautifulTrack = audioSrc.includes('Theme_song.mp3') || 
+                                   audioSrc.includes('Theme song.mp3') || 
+                                   audioSrc.toLowerCase().includes('young');
 
   useEffect(() => {
     // Audio source initialization
@@ -75,8 +82,8 @@ export const MiniMusicPlayer = ({ audioSrc = '/Theme song.mp3', trackTitle = 'Yo
 
   return (
     <>
-      {/* Synchronized Floating Karaoke Banner (Only for default track Young and Beautiful) */}
-      {audioSrc.includes('Theme song.mp3') && (
+      {/* Synchronized Floating Karaoke Banner (Only for track Young and Beautiful) */}
+      {isYoungAndBeautifulTrack && (
         <KaraokeLyricsBanner
           currentTime={currentTime}
           isPlaying={isPlaying}
@@ -100,8 +107,8 @@ export const MiniMusicPlayer = ({ audioSrc = '/Theme song.mp3', trackTitle = 'Yo
         <div className="mp3-track-details">
           <div className="mp3-track-title-row">
             <span className="mp3-music-note">🎵</span>
-            <span className="mp3-track-name">{trackTitle}</span>
-            {audioSrc.includes('Theme song.mp3') && (
+            <span className="mp3-track-name" title={trackTitle}>{trackTitle}</span>
+            {isYoungAndBeautifulTrack && (
               <button
                 className="mp3-lyrics-btn"
                 onClick={() => setShowLyricsModal(true)}

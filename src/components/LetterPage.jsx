@@ -202,7 +202,7 @@ export const LetterPage = ({ onGoBack, onGoNext }) => {
       </main>
 
       {/* Mini MP3 Player Widget Configured for Theme Song 2 */}
-      <MiniMusicPlayer audioSrc="/Theme song 2.mp3" trackTitle="පිපුණු තිසරුන්" />
+      <MiniMusicPlayer audioSrc="https://res.cloudinary.com/keklxcys/video/upload/v1788220552/Theme_song_2.mp3" trackTitle="පිපුණු තිසරුන්" />
 
       {/* Back Navigation Link */}
       {onGoBack && (

@@ -3823,3 +3823,115 @@ html, body {
   }
 }
 
+/* ==========================================================================
+   Comprehensive Mobile & Tablet Responsiveness Overrides (Zero Collapse / Zero Overlap)
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  /* Prevent MP3 Player and Back Link Collision */
+  .mini-mp3-player-widget {
+    bottom: 0.6rem !important;
+    right: 0.6rem !important;
+    max-width: 175px !important;
+    padding: 0.35rem 0.65rem 0.35rem 0.4rem !important;
+    gap: 0.4rem !important;
+  }
+
+  .mp3-track-name {
+    max-width: 80px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    font-size: 0.7rem !important;
+  }
+
+  .mp3-play-btn {
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+  }
+
+  .mp3-btn-icon {
+    font-size: 0.75rem !important;
+  }
+
+  .back-link-btn {
+    bottom: 0.6rem !important;
+    left: 0.6rem !important;
+    font-size: 0.75rem !important;
+    padding: 0.35rem 0.75rem !important;
+    border-radius: 20px !important;
+    max-width: 150px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  /* Sound Toggle button top corner */
+  .sound-toggle-btn {
+    top: 0.8rem !important;
+    left: 0.8rem !important;
+    padding: 0.35rem 0.75rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  /* Bouquet Page Centerpiece Mobile Fit */
+  .bouquet-central-stage {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    align-items: center !important;
+  }
+
+  .blossoming-garden-centerpiece {
+    transform: scale(0.75) !important;
+    margin: -1.5rem 0 !important;
+  }
+
+  .silk-ribbon-tag {
+    padding: 0.4rem 0.9rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* Scrapbook Polaroid mobile height limit */
+  .polaroid-photo-canvas {
+    max-height: 200px !important;
+    object-fit: contain !important;
+  }
+
+  .polaroid-caption-title {
+    font-size: 1.1rem !important;
+  }
+
+  /* Typewriter Letter Mobile paper scroll fit */
+  .typewriter-notepad-container {
+    max-height: 65vh !important;
+    padding: 1.2rem 1rem !important;
+  }
+
+  .parchment-text-body {
+    font-size: 1.05rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Gift Reveal Grid Mobile 2x2 */
+  .gifts-row-container {
+    gap: 0.8rem !important;
+  }
+
+  .gift-box-wrapper {
+    width: 140px !important;
+    height: 175px !important;
+    padding: 1rem 0.8rem !important;
+  }
+
+  .gift-box-svg {
+    width: 100px !important;
+    height: 110px !important;
+  }
+
+  .gift-card-label-badge {
+    font-size: 0.78rem !important;
+    padding: 0.25rem 0.75rem !important;
+  }
+}
+
